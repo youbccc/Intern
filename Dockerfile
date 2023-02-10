@@ -5,5 +5,5 @@ ENV WEBPORT 80
 EXPOSE ${WEBPORT}
 EXPOSE 443
 VOLUME /var/www/html
-COPY ~/intern/index.html /var/www/html/index.html
+COPY index.html /var/www/html/index.html
 
