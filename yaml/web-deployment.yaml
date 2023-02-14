@@ -5,11 +5,6 @@ metadata:
   labels:
     app: web
 spec:
-  strategy:
-    type: RollingUpdate
-    rollingUpdate:
-      maxUnavailable: 1
-      maxSurage: 1
   replicas: 1
   selector:
     matchLabels:
