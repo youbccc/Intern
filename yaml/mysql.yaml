@@ -36,8 +36,8 @@ spec:
               name: mysql
           volumeMounts:
             - name: mysql-persistent-storage
-              mountPath: /var/lib/mysql
+              mountPath: /home/ubuntu/intern/mysql
       volumes:
         - name: mysql-persistent-storage
           persistentVolumeClaim:
-            claimName: web-pvc 
+            claimName: myapp-pvc-nfs

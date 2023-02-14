@@ -1,13 +1,13 @@
-kind: PersistentVolume
 apiVersion: v1
+kind: PersistentVolume
 metadata:
-  name: web-pv
-  labels:
-    app: web
+  name: myapp-pv-nfs
 spec:
   capacity:
-    storage: 10Gi
+    storage: 1Gi
   accessModes:
-    - ReadWriteOnce
-  hostPath:
-    path: "/home/ubuntu/intern/yaml/db"
+  - ReadWriteMany
+  persistentVolumeReclaimPolicy: Retain
+  nfs:
+    path: /home/ubuntu/intern/mysql
+    server: 10.7.11.31

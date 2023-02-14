@@ -1,10 +1,12 @@
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: web-pvc
+  name: myapp-pvc-nfs
 spec:
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteMany
   resources:
     requests:
-      storage: 10Gi 
+      storage: 1Gi
+  volumeName: myapp-pv-nfs
+  storageClassName: '' 
