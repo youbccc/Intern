@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  namespace: pybo
+  name: pybo-web-deployment
+  labels:
+    app: pybo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pybo
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 1
+      maxUnavailable: 0
+  template:
+    metadata:
+      labels:
+        app: pybo
+    spec:
+      containers:
+      - name: pybo
+        image: kiwini99/wizontech:ddadangku1
+#        livenessProbe:
+#          exec:
+#            command:
+#              - ls -l
+#              - /var
+#        readinessProbe:
+#          exec:
+#            command:
+#              - ls
+#              - /var
+        ports:
+        - containerPort: 8000
+          name: pybo
+          protocol: TCP

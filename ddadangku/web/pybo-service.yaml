@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  namespace: pybo
+  name: pybo-web-svc
+  labels:
+    app: pybo
+spec:
+  ports:
+  - port: 80
+    targetPort: 8000
+#    nodePort: 30100
+  type: NodePort
+#  type: LoadBalancer
+  selector:
+    app: pybo
